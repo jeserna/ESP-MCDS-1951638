@@ -13,12 +13,13 @@ class AlterUsersTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('name', 50)->change();
+        Schema::table('users', function(Blueprint $table){
+            $table->date('birthdate')->after('password');
+            $table->string('gender')->after('birthdate');
+            $table->string('photo')->after('gender')->default('img/nophoto.png');
+            $table->string('role')->after('photo')->default('editor');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -26,6 +27,8 @@ class AlterUsersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users',function(Blueprint $table){
+            $table->dropColumn(['birthdate','gender', 'photo', 'role']);
+        });
     }
 }
