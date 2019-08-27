@@ -14,7 +14,8 @@ class UsersTableSeeder extends Seeder
     {
         
         $user = new User;
-        $user->name = 'Homero J Simpson';
+        $user->username = 'HomeroJSimpson10';
+        $user->fullname = 'Homero J Simpson';
         $user->email = 'homerojs@gmail.com';
         $user->password = bcrypt('admin');
         $user->birthdate = '1975-12-24';
@@ -23,14 +24,14 @@ class UsersTableSeeder extends Seeder
         $user->save();
         
         User::create(array(
-            'name' => 'Jeremias Springfield',
+            'username' => 'JeremiasSpringfield12',
+            'fullname' => 'Jeremias Springfield',
             'email' => 'jeremiass@gmail.com',
             'password' => bcrypt('1234'),
             'birthdate' => '1890-08-20',
             'gender' => 'Male'
         ));
 
-        // Factory
-        factory(User::class, 10)->create();
+        // factory(User::class, 10)->create();
     }
 }
