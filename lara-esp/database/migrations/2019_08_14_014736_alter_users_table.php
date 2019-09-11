@@ -18,7 +18,7 @@ class AlterUsersTable extends Migration
             $table->string('username')->unique()->after('id');
             $table->date('birthdate')->after('password');
             $table->string('gender')->after('birthdate');
-            $table->string('photo')->after('gender')->default('img/nophoto.png');
+            $table->string('photo')->after('gender')->default('imgs/nophoto.png');
             $table->string('role')->after('photo')->default('editor');
         });
     }
